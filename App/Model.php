@@ -2,18 +2,19 @@
 
 namespace App;
 
-class User
+class Model
 {
 
-    public $email;
-    public $name;
+    public const TABLE = '1';
 
     public static function findAll()
     {
         $db = new Db();
         return $db->query(
-            'SELECT * FROM users',
-            'App\User'
+            'SELECT * FROM ' . static::TABLE,
+            static::class
         );
+
+
     }
 }

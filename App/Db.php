@@ -4,7 +4,7 @@ namespace App;
 
 class Db
 {
-    protected $dbh;
+    protected \PDO $dbh;
     public function __construct()
     {
         $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
