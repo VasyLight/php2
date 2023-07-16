@@ -2,10 +2,10 @@
 
 namespace App;
 
-class Model
+abstract class Model
 {
 
-    public const TABLE = '1';
+    public const TABLE = '';
 
     public static function findAll()
     {
@@ -14,7 +14,20 @@ class Model
             'SELECT * FROM ' . static::TABLE,
             static::class
         );
+    }
 
+    public static function findById($id)
+    {
+        $db = new Db();
+        $res = $db->query(
+            'SELECT * FROM ' . static::TABLE . ' WHERE id = ' . $id,
+            static::class
+        );
 
+        if (false !== $res)
+        {
+            return $res;
+        }
+        return false;
     }
 }
