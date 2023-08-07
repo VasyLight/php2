@@ -12,7 +12,7 @@ class Article extends Model
 
     public function show($id)
     {
-        $db = new Db();
+        $db = Db::instance();
 
         $res = $db->query(
             'SELECT * FROM ' . static::TABLE . ' WHERE id = ' . $id,
